@@ -1,0 +1,50 @@
+
+
+$clr-dark: #333;
+$clr-accent: #f58549;
+$fs-header: 'Courier New', Courier, monospace;
+
+.navbar-link{
+    font-weight: bold;
+}
+
+.navbar-link:hover{
+    color: $clr-accent;
+}
+
+
+a{
+    color:black;
+    text-decoration: none;
+    font-family: 'Comfortaa', cursive;
+}
+
+
+.logo--img{
+    width:60px;
+    
+    margin-left:20px;
+}
+
+.navbar-toggler{
+    width: 75px;
+    margin-right: 10px;
+}
+
+.ewn-navbar-mobile{
+    display:none;
+}
+
+
+// If screen width is less than 1024px than use ewn-navbar-mobile class otherwise use ewn-navbar-desktop
+@media screen and (max-width: 1024px) {
+    .ewn-navbar-desktop{
+        display: none;
+    }
+
+    .ewn-navbar-mobile{
+        display: block;
+    }
+    
+
+}
