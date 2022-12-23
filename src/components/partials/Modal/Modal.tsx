@@ -37,3 +37,11 @@ const Modal = ( props: ModalType) => {
 };
 
 export default Modal;
+
+
+
+
+
+
+
+
