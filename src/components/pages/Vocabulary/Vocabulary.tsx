@@ -35,24 +35,32 @@ const IMAGES = [
     {img: Vocab21 },  {img: Vocab22 },  {img: Vocab23 },  {img: Vocab24 }
 ];
 
+interface Props {
+  fn?: () => void;
+} 
 
-const Vocabulary = ( ) => {
-  const [isOpen, setIsOpen] = useState<any>(null);
+
+
+const Vocabulary: React.FC <Props>= ( ) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedImageData, setImageData] = useState({img: ""});
 
   return (
     <>
       <div className="row ">
-        {IMAGES.map((imageData) => {
+        {IMAGES.map((imageData, index) => {
           return (
             <>
-              <div className="card vocabulary__card mt-5 mb-5 me-5 ms-5 col-sm-12 col-md-3">
+              <div className="card vocabulary__card mt-5 mb-5 me-5 ms-5 col-sm-12 col-md-3" key={index}>
                 <img
                   src={imageData.img}
                   alt="Vocab1"
                   className="card-img-top vocabulary--img"
                 //  {/* send the clicked image data to the state */}
 
-                  onClick={() => setIsOpen(imageData)}
+                  onClick={() => {setImageData(imageData);
+                    setIsOpen(true);
+                  }}
                 />
                 <div className="card-body">
                 
@@ -64,18 +72,13 @@ const Vocabulary = ( ) => {
           );
         })}
 
-{Boolean(isOpen) && (
+{isOpen && (
                     //  bind the selected image data state to a data prop on Modal
                     <Modal
                       // data={isOpen} 
-                      image={isOpen?.img}
-                      //  close the modal
+                      image={selectedImageData.img}
+                      // We pass setIsOpen as a callback so when Modal closes it updates the Vocabulary component.
                       setIsOpen={setIsOpen}
-
-                      //What is the proper type for an image in TypeScript?
-                      //https://stackoverflow.com/questions/53909818/what-is-the-proper-type-for-an-image-in-typescript
-
-                      // What is the proper type for a destructured Open constant?
 
                     />
                   )}
@@ -86,46 +89,6 @@ const Vocabulary = ( ) => {
   );
 };
 
-
-
-
-
-
-
-
-
-// const Vocabulary = () =>{
-//   const [isOpen, setIsOpen] = useState(false);
-//     return <>
-// {/* //Display bootstrap image card                 */}
-
-// <div class="row "> 
-// {IMAGES.map(IMAGES=> {
-// return (
-  
-//     <> 
-//     <div className="card vocabulary--card mt-5 mb-5 me-5 ms-5">
-//     <img src={IMAGES.img} alt="Vocab1" className="card-img-top" onClick={() => setIsOpen(true)}/>
-//   <div className="card-body">
-//     <p className="card-text dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"> </p>
-//     {isOpen && <Modal setIsOpen={setIsOpen} />}
-//   </div>
-// </div>
-
-
-
-//    {/* <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-//     <li><a className="dropdown-item">  <img src={IMAGES.img} alt="Vocab1" className="card-img-top" style={{width:500}} /></a></li>
-//   </ul> */}
-
-// </> 
-// )
-// })}
-// </div>
-
-
-//     </>
-// }
 
 
 

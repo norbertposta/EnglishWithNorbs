@@ -14,7 +14,7 @@ import Tips from './components/pages/Tips/Tips'
 import Questions from './components/pages/Questions/Questions'
 import React from "react";
 
-function App() {
+const App: React.FC = () => {
   return (
     <>
 
@@ -28,7 +28,9 @@ function App() {
         <Route path="/grammar" element={<Grammar />}/>
         <Route path="/vocabulary" element={<Vocabulary />}/>
         <Route path="/tips" element={<Tips />}/>
-        {/* <Route path="/questions" element={<Questions/>}/> */}
+        
+        <Route path="/questions" element={<Questions/>}/>
+    
 
       </Routes>
       {/* <Footer/> */}

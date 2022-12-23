@@ -2,14 +2,14 @@ import './Questions.scss';
 
 import React, {useEffect, useState} from "react";
 import { Button, Carousel, Stack, Col } from "react-bootstrap";
-import {run as runHolder} from 'holderjs/holder';
 
 import { MyQUESTIONS } from "./questionImports.js";
 
   function Questions() {
     return (
-        // map through MyQUESTIONS array
-        MyQUESTIONS.map(question => (
+      <>
+      {/* map through MyQUESTIONS array */}
+       { MyQUESTIONS.map(question => (
             <Col sm={12} md={6} lg={6} className="mt-5 me-auto ms-auto">
         <Carousel variant="dark" key={question.id} interval = {null} >
         <Carousel.Item>
@@ -28,84 +28,12 @@ import { MyQUESTIONS } from "./questionImports.js";
         </Carousel.Item>
       </Carousel>
         </Col>
-        ))
-    );
+        ))}
+        </>);
 }
 
 
   export default Questions;
-
-  
-
-  
-
-
-//   export default function App() {
-//     const [activeIndex, setActiveIndex] = useState(0);
-//     const [animating, setAnimating] = useState(false);
-  
-//     const next = () => {
-//       if (animating) return;
-//       const nextIndex = activeIndex === MyQUESTIONS.length - 1 ? 0 : activeIndex + 1;
-//       setActiveIndex(nextIndex);
-//     };
-  
-//     const previous = () => {
-//       if (animating) return;
-//       const nextIndex = activeIndex === 0 ? MyQUESTIONS.length - 1 : activeIndex - 1;
-//       setActiveIndex(nextIndex);
-//     };
-  
-//     const goToIndex = (newIndex) => {
-//       if (animating) return;
-//       setActiveIndex(newIndex);
-//     };
-  
-  
-//     const slides = MyQUESTIONS.map((item) => {
-//       return (
-//         <CarouselItem
-//           onExiting={() => setAnimating(true)}
-//           onExited={() => setAnimating(false)}
-//           key={item.src}
-//         >
-//           <img src={item.src} alt={item.altText} />
-//           <CarouselCaption
-//             captionText={item.caption}
-//             captionHeader={item.caption}
-//           />
-//         </CarouselItem>
-//       );
-//     });
-  
-    
-  
-//     return (
-//       <div className="App">
-//         <Carousel activeIndex={activeIndex} next={next} previous={previous}>
-//           <CarouselIndicators
-//             items={MyQUESTIONS}
-//             activeIndex={activeIndex}
-//             onClickHandler={goToIndex}
-//           />
-//           {slides}
-//           <CarouselControl
-//             direction="prev"
-//             directionText="Previous"
-//             onClickHandler={previous}
-//           />
-//           <CarouselControl
-//             direction="next"
-//             directionText="Next"
-//             onClickHandler={next}
-//           />
-//         </Carousel>
-        
-    
-//       </div>
-//     );
-//   }
-
 
 
 
